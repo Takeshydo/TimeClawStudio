@@ -1,0 +1,394 @@
+/* ==========================================================================
+   TimeClaw Studio — styles.css (v3)
+   Fond uni gris clair, bleu électrique, mise en page ouverte (sans cartes)
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap");
+
+/* ---------- Variables ---------- */
+:root {
+    --bg: #eceff3;
+    --line: #d3d9e2;
+    --line-strong: #aeb7c5;
+
+    --graphite: #232a35;
+    --text: #2c3440;
+    --text-strong: #151a22;
+    --muted: #667085;
+
+    --blue: #2f80ff;
+    --blue-strong: #1d6bf0;
+    --blue-dark: #1750b8;
+    --blue-tint: #e0ebff;
+    --ring: rgba(47, 128, 255, 0.28);
+
+    --ok: #12805c;
+    --error: #c93b3b;
+
+    --font-display: "Barlow", "Segoe UI", system-ui, sans-serif;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --content: 1100px;
+    --header-h: 4.5rem; /* hauteur approximative de l'en-tête */
+    --gutter: clamp(1.25rem, 5vw, 3rem);
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text);
+    background-color: var(--bg);
+    /* un seul fond continu : un léger halo bleu en haut à droite, rien d'autre */
+    background-image: radial-gradient(ellipse 60% 45% at 85% 0%, rgba(47, 128, 255, 0.10), transparent 70%);
+    background-attachment: fixed;
+}
+
+::selection { background: var(--blue); color: #fff; }
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--text-strong);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0 0 1rem;
+}
+
+p { margin: 0 0 1.1rem; max-width: 62ch; }
+strong { color: var(--text-strong); font-weight: 500; }
+
+a {
+    color: var(--blue-dark);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover { color: var(--blue-strong); text-decoration: underline; text-underline-offset: 4px; }
+
+:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ---------- En-tête : translucide, fondu dans la page ---------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    padding: 1rem var(--gutter);
+    background: rgba(236, 239, 243, 0.78);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(174, 183, 197, 0.35);
+}
+
+.Enterprise_name {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--graphite);
+}
+
+.burger {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.OwnLink a {
+    display: block;
+    padding: 0.4rem 1rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--text);
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.OwnLink a:hover,
+.OwnLink a:focus-visible {
+    color: var(--blue-dark);
+    background: var(--blue-tint);
+    text-decoration: none;
+}
+
+/* ---------- Sections : pleine largeur, séparées par l'espace et un filet ---------- */
+.About,
+.games-container,
+.contact-container {
+    width: min(var(--content), 100% - 2 * var(--gutter));
+    margin: 0 auto;
+    padding: clamp(3.5rem, 9vw, 6.5rem) 0;
+}
+
+.games-container,
+.contact-container { border-top: 1px solid var(--line); }
+
+/* Titres de section : grands, sans décoration */
+.title,
+.gc-title,
+.cc-header-title {
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    font-weight: 700;
+}
+
+/* ---------- À propos : titre à gauche, texte à droite ---------- */
+.About {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) 2fr;
+    column-gap: clamp(2rem, 6vw, 5rem);
+}
+
+.About > .title { grid-column: 1; grid-row: 1 / span 3; align-self: start; }
+.About > :not(.title) { grid-column: 2; }
+
+/* "À propos" remplit tout l'écran sous l'en-tête : "Nos jeux" n'apparaît qu'en défilant */
+.About {
+    min-height: calc(100vh - var(--header-h));
+    min-height: calc(100svh - var(--header-h)); /* mobile : tient compte des barres du navigateur */
+    align-content: center;
+}
+
+.sitation {
+    margin: 1.5rem 0 2rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--blue);
+}
+
+.speach {
+    margin: 0;
+    font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--text-strong);
+}
+
+.social_media p { color: var(--muted); }
+
+.social_media ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.social_media li { display: flex; align-items: center; gap: 0.5rem; }
+.social_media img { width: 20px; height: 20px; }
+
+.social_media li a {
+    display: inline-block;
+    padding: 0.5rem 1.4rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--text-strong);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.social_media li a:hover,
+.social_media li a:focus-visible {
+    color: var(--blue-dark);
+    border-color: var(--blue);
+    background: var(--blue-tint);
+    text-decoration: none;
+}
+
+/* ---------- Nos jeux : liste ouverte, une ligne par jeu ---------- */
+.gc-intro { color: var(--muted); }
+
+.gc-grid {
+    display: block;
+    margin-top: 2.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.gc-Card {
+    display: grid;
+    /* col 1 : titre / statut ; col 2 à la fin : description puis tags en ligne */
+    grid-template-columns: minmax(220px, 0.8fr) repeat(6, max-content) 1.4fr;
+    column-gap: 0.5rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--line);
+}
+
+.gc-card-header {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-right: clamp(1.5rem, 5vw, 4.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+}
+
+.gc-card-meta { order: 1; }
+.gc-card-status { order: 2; }
+
+.gc-card-name {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    transition: color 0.25s;
+}
+
+.gc-Card:hover .gc-card-name { color: var(--blue-strong); }
+
+.gc-card-type { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.gc-card-studio { margin: 0.1rem 0 0; font-size: 0.95rem; }
+
+.gc-card-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--blue-dark);
+    background: var(--blue-tint);
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.gc-card-status::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--blue);
+}
+
+.gc-card-description { grid-column: 2 / -1; grid-row: 1; margin: 0 0 1rem; }
+
+/* Les tags sont les derniers enfants : on les regroupe sous la description */
+.gc-card-tag {
+    grid-row: 2;
+    justify-self: start;
+    align-self: start;
+    margin: 0;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.82rem;
+    color: var(--text);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+}
+
+/* ---------- Contact : intro à gauche, formulaire à droite ---------- */
+.contact-container {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) 1.6fr;
+    column-gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+}
+
+.cc-header-description { color: var(--muted); }
+
+#cc-form { display: grid; gap: 1.6rem; }
+
+#cc-form label {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-strong);
+}
+
+/* Champs "soulignés" : pas de boîtes */
+#cc-form input,
+#cc-form textarea {
+    width: 100%;
+    padding: 0.6rem 0;
+    font: inherit;
+    color: var(--text-strong);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line-strong);
+    border-radius: 0;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#cc-form textarea { resize: vertical; min-height: 110px; }
+
+#cc-form input:hover,
+#cc-form textarea:hover { border-bottom-color: var(--muted); }
+
+#cc-form input:focus,
+#cc-form textarea:focus {
+    outline: none;
+    border-bottom-color: var(--blue);
+    box-shadow: 0 1px 0 0 var(--blue);
+}
+
+.cc-form-button {
+    justify-self: start;
+    padding: 0.8rem 2.2rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #fff;
+    background: var(--blue-strong);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+.cc-form-button:hover { background: var(--blue-dark); box-shadow: 0 6px 18px rgba(29, 107, 240, 0.28); }
+.cc-form-button:focus-visible { box-shadow: 0 0 0 3px var(--ring); outline: none; }
+.cc-form-button:active { transform: translateY(1px); }
+.cc-form-button:disabled { opacity: 0.55; cursor: not-allowed; box-shadow: none; }
+
+#status_message {
+    min-height: 1.5em;
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+/* À ajouter depuis main.js : status.classList.add("is-success" | "is-error") */
+#status_message.is-success { color: var(--ok); }
+#status_message.is-error { color: var(--error); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+    .About,
+    .contact-container { display: block; }
+
+    .gc-Card { display: block; }
+    .gc-card-header { margin: 0 0 1rem; }
+    .gc-card-tag { display: inline-block; margin: 0 0.4rem 0.4rem 0; }
+}
+
+@media (max-width: 640px) {
+    :root { --header-h: 7.5rem; }
+    header { justify-content: center; text-align: center; }
+    .burger { justify-content: center; }
+    .cc-form-button { justify-self: stretch; }
+}
+
+/* ---------- Accessibilité : mouvement réduit ---------- */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+}

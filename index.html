@@ -1,18 +1,19 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
     <title>TimeClaw Studio</title>
 </head>
 <header>
    <h1 class="Enterprise_name">TimeClaw Studio</h1>
     <ul class="burger">
-        <li class="OwnLink"><a href="#">About</a></li>
-        <li class="OwnLink"><a href="#">Games</a></li>
-        <li class="OwnLink"><a href="#">Contact</a></li>
+        <li class="OwnLink"><a href="#">A Propos</a></li>
+        <li class="OwnLink"><a href="#">Nos Jeux</a></li>
+        <li class="OwnLink"><a href="#">Nous Contacter</a></li>
     </ul>
 
 </header>
@@ -22,50 +23,66 @@
                 IMAGE Dynamique d'un sablier qui tourne et qu'on peut faire tourné avec un effet de griffes quand on passe la souris dessus
  -->
 <div class ="About">
-    <h2 class="title">About us</h2>
-    <p>We are a small <strong>independent video game studio</strong> based in <strong>Lyon</strong>. <br>
-        At <strong>TimeClaw</strong>, we want to convey the <strong>passion</strong>, <strong>creativity</strong>, and <strong>risk</strong> involved in making a studio succeed.<br>
-        TimeClaw is also a studio that <strong>supports</strong> and <strong>co-develops</strong> with other studios to push each other to new heights and <strong>challenge</strong> the industry giants.<br>
-    </p>
+    <h2 class="title">A Propos</h2>
+    <p>Nous sommes un petit <strong>studio de jeux vidéo indépendant</strong> basé à <strong>Lyon</strong>. <br>
+        Chez <strong>TimeClaw</strong>, nous voulons transmettre la <strong>passion</strong>, la <strong>créativité</strong> et le <strong>risque</strong> impliqués dans la réussite d'un studio.<br>
+        TimeClaw est également un studio qui <strong>soutient</strong> et <strong>co-développe</strong> avec d'autres studios pour se pousser mutuellement vers de nouveaux sommets et <strong>défier</strong> les géants de l'industrie.<br></p>
     <div class="sitation">
-        <h3 class="speach">Time always presses down on us, but that is precisely what drives us to take risks and keep pushing boundaries.</h3>
+        <h3 class="speach">Le temps nous oppresse toujours, mais c'est précisément ce qui nous pousse à prendre des risques et à continuer de repousser les limites.</h3>
     </div>
 
     <div class="social_media">
-        <p>If you want to know more about our project and every little detail on how we make our games come see us on Tiktok and X </p>
+        <p>Si vous voulez en savoir plus sur notre projet et sur les moindres détails de la façon dont nous fabriquons nos jeux, venez nous rendre visite sur TikTok et sur X.</p>
         <ul>
-            <li><img link="logotiktok"><a href="tiktokLink">Our TikTok</a></li>
-            <li><img link="logoX"><a href="Xlink">Our X</a></li>
+            <li><img link="logotiktok"><a href="tiktokLink">TikTok</a></li>
+            <li><img link="logoX"><a href="Xlink">X</a></li>
         </ul>
     </div>
 </div>
 
-<div class="games"> <!-- Juste un Exemple de ce que ca peut donner avec le temps, et préparer le terrain || Dans l'évolution faire avec un frameWork comme Angular pour un truc plus smooth-->
-    <h2 class="title">Games</h2>
-    <ul class="OurGames">
-        <li><a href="#PageOfTheGame">Games 1</a></li>
-        <li><a href="#PageOfTheGame">Games 2</a></li>
-        <li><a href="#PageOfTheGame">Games 3</a></li>
-        <li><a href="#PageOfTheGame">Games 4</a></li>
-    </ul>
+<div class="games-container"> <!-- Juste un Exemple de ce que ca peut donner avec le temps, et préparer le terrain || Dans l'évolution faire avec un frameWork comme Angular pour un truc plus smooth-->
+    <h2 class="gc-title">Nos Jeux</h2>
+    <p class ="gc-intro"> Pour le moment notre studio compte 2 jeux. L'un en co-développement avec un autre Studio et un autre qui est pour le moment encore en état de projet.</p>
+            <div class = "gc-grid">
+                <div class ="gc-Card">
+                    <div class ="gc-card-header">
+                        <div class ="gc-card-meta">
+                            <h3 class ="gc-card-name">Rhodotales</h3>
+                            <p class = "gc-card-type"> Platformer HD-2D</p>
+                            <p class ="gc-card-studio"><a href="https://tyrociel.fr/">Tyrociel</a></p>
+                        </div>
+                        <span class = "gc-card-status">En Développement</span>
+                    </div>
+                    <p class ="gc-card-description"> Rhodatales est jeux que TimeClaw co-developpe avec un autre studio. Il fait partie de l'un des studio pionné de la création de TimeClaw et de ses ambitions.</p>
+                    <span class ="gc-card-tag">Plateforme</span>
+                    <span class ="gc-card-tag">HD-2D</span>
+                    <span class ="gc-card-tag">Médiéval</span>
+                </div>
+            </div>
 </div>
-<div class="contact"> <!-- faire un système d'envoie d'email direct ? -->
-    <form id="contact_form">
-        <div>
-            <label for="user_name">Nom</label>
-            <input type="text" id="user_name" name="user_name" required>
-        </div>
-        <div>
-            <label for="user_email">E-mail</label>
-            <input type="email" id="user_email" name="user_email" required>
-        </div>
-        <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit">Submit</button>
-        <p id="status_message"></p>
-    </form>
+<div class="contact-container">
+    <div class = "cc-header">
+        <h3 class = "cc-header-title">Nous Contactez </h3>
+        <p class = "cc-header-description"> Si vous souhaitez entrez en contact avec nous, tous ce passe juste ici</p>
+    </div>
+    <div class = "cc-meta">
+        <form id="cc-form">
+            <div class ="cc-form-name">
+                <label for="user_name">Votre Nom</label>
+                <input type="text" id="user_name" name="user_name" required>
+            </div>
+            <div class ="cc-form-email">
+                <label for="user_email">Votre e-mail</label>
+                <input type="email" id="user_email" name="user_email" required>
+            </div>
+            <div class ="cc-form-message">
+                <label for="message">votre message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class = "cc-form-button">Submit</button>
+            <p id="status_message"></p>
+        </form>
+    </div>
 </div>
 </body>
 </html>

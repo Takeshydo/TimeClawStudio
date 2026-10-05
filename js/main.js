@@ -3,7 +3,7 @@
 }) ();
 
 document.addEventListener("DOMContentLoaded", () =>{
-    const form = document.getElementById('contact_form');
+    const form = document.getElementById('cc-form');
     const statusmsg = document.getElementById('status_message');
 
     if (!form) return;
