@@ -9,20 +9,38 @@
     <title>TimeClaw Studio</title>
 </head>
 <header>
-   <h1 class="Enterprise_name">TimeClaw Studio</h1>
-    <ul class="burger">
-        <li class="OwnLink"><a href="#">A Propos</a></li>
-        <li class="OwnLink"><a href="#">Nos Jeux</a></li>
-        <li class="OwnLink"><a href="#">Nous Contacter</a></li>
-    </ul>
-
+    <div class ="header-container">
+        <div class ="logo">
+            <img class="logo" src="assets/logo/Logo_Tampon.png" alt="logo">
+        </div>
+        <div class = "hc-enterprise">
+            <h1 class="hc-enterprise-name">TimeClaw Studio</h1>
+        </div>
+        <div class ="burger">
+            <ul class="b-link">
+                <li class="OwnLink"><a href="#logo-zone">Accueil</a></li>
+                <li class="OwnLink"><a href="#about">A Propos</a></li>
+                <li class="OwnLink"><a href="#game">Nos Jeux</a></li>
+                <li class="OwnLink"><a href="#contact">Nous Contacter</a></li>
+            </ul>
+        </div>
+    </div>
 </header>
 <body>
- <!--  ICI il y aura une image un peu comme Tyrolium dynamique avec le Nom de TimeClaw
+<section class="logo-zone" id="logo-zone">
+    <div>
+        <h2 class="title">Le temps file, le jeu reste.</h2>
+    </div>
+    <div class="stage" id="stage" role="img" aria-label="Logo TimeClaw interactif">
+        <div class="flip" id="flip">
+            <img class="face" src="assets/logo/Logo_Tampon.png" alt="" draggable="false">
+            <img class="face back" src="assets/logo/Logo_Tampon.png" alt="" draggable="false">
+        </div>
+        <canvas id="fx"></canvas>
+    </div>
+</section>
 
-                IMAGE Dynamique d'un sablier qui tourne et qu'on peut faire tourné avec un effet de griffes quand on passe la souris dessus
- -->
-<div class ="About">
+<div class ="About" id="about">
     <h2 class="title">A Propos</h2>
     <p>Nous sommes un petit <strong>studio de jeux vidéo indépendant</strong> basé à <strong>Lyon</strong>. <br>
         Chez <strong>TimeClaw</strong>, nous voulons transmettre la <strong>passion</strong>, la <strong>créativité</strong> et le <strong>risque</strong> impliqués dans la réussite d'un studio.<br>
@@ -34,13 +52,13 @@
     <div class="social_media">
         <p>Si vous voulez en savoir plus sur notre projet et sur les moindres détails de la façon dont nous fabriquons nos jeux, venez nous rendre visite sur TikTok et sur X.</p>
         <ul>
-            <li><img link="logotiktok"><a href="tiktokLink">TikTok</a></li>
-            <li><img link="logoX"><a href="Xlink">X</a></li>
+            <li><img link="logotiktok"><a href="https://www.tiktok.com/@timeclawstudio">TikTok</a></li>
+            <li><img link="logoX"><a href="https://x.com/TimeClawStudio">X</a></li>
         </ul>
     </div>
 </div>
 
-<div class="games-container"> <!-- Juste un Exemple de ce que ca peut donner avec le temps, et préparer le terrain || Dans l'évolution faire avec un frameWork comme Angular pour un truc plus smooth-->
+<div class="games-container" id="game"> <!-- Juste un Exemple de ce que ca peut donner avec le temps, et préparer le terrain || Dans l'évolution faire avec un frameWork comme Angular pour un truc plus smooth-->
     <h2 class="gc-title">Nos Jeux</h2>
     <p class ="gc-intro"> Pour le moment notre studio compte 2 jeux. L'un en co-développement avec un autre Studio et un autre qui est pour le moment encore en état de projet.</p>
             <div class = "gc-grid">
@@ -54,13 +72,31 @@
                         <span class = "gc-card-status">En Développement</span>
                     </div>
                     <p class ="gc-card-description"> Rhodatales est jeux que TimeClaw co-developpe avec un autre studio. Il fait partie de l'un des studio pionné de la création de TimeClaw et de ses ambitions.</p>
-                    <span class ="gc-card-tag">Plateforme</span>
-                    <span class ="gc-card-tag">HD-2D</span>
-                    <span class ="gc-card-tag">Médiéval</span>
+                    <div>
+                        <span class ="gc-card-tag">Plateforme</span>
+                        <span class ="gc-card-tag">HD-2D</span>
+                        <span class ="gc-card-tag">Médiéval</span>
+                    </div>
+                </div>
+
+                <div class ="gc-Card">
+                    <div class ="gc-card-header">
+                        <div class ="gc-card-meta">
+                            <h3 class ="gc-card-name">Projet M</h3>
+                            <p class = "gc-card-type">TPS spatial</p>
+                        </div>
+                        <span class = "gc-card-status">En Développement</span>
+                    </div>
+                    <p class ="gc-card-description"> Projet M est le jeu qui identifira TimeClaw. Il se déroule dans un Univers futuriste ou un conflit, des plus importants, éclate.</p>
+                    <div>
+                        <span class ="gc-card-tag">TPS</span>
+                        <span class ="gc-card-tag">Mecha</span>
+                        <span class ="gc-card-tag">Science Fiction</span>
+                    </div>
                 </div>
             </div>
 </div>
-<div class="contact-container">
+<div class="contact-container" id="contact">
     <div class = "cc-header">
         <h3 class = "cc-header-title">Nous Contactez </h3>
         <p class = "cc-header-description"> Si vous souhaitez entrez en contact avec nous, tous ce passe juste ici</p>
@@ -84,5 +120,10 @@
         </form>
     </div>
 </div>
+<footer>
+    <div class = "footer">
+        <p class ="copyright"> © 2026 TimeClawStudio. Tous droits réservés.</p>
+    </div>
+</footer>
 </body>
 </html>
