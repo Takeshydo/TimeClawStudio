@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     const stage = document.getElementById('stage'), flip = document.getElementById('flip');
     const cv = document.getElementById('fx'), ctx = cv.getContext('2d');
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const BLUE = '#1f6bff';
+    const Color = '#000000';
     let W = 0, H = 0;
 
     function resize() {
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () =>{
                 L.push([x - (ty / m) * wd, y + (tx / m) * wd]);
                 R.push([x + (ty / m) * wd, y - (tx / m) * wd]);
             }
-            ctx.globalAlpha = fade; ctx.fillStyle = BLUE; ctx.shadowColor = 'rgba(31,107,255,.55)'; ctx.shadowBlur = 14;
+            ctx.globalAlpha = fade; ctx.fillStyle = Color; ctx.shadowColor = 'rgba(31,107,255,.55)'; ctx.shadowBlur = 14;
             ctx.beginPath(); L.forEach((p, j) => j ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]));
             for (let j = R.length - 1; j >= 0; j--) ctx.lineTo(R[j][0], R[j][1]);
             ctx.closePath(); ctx.fill();

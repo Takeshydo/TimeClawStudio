@@ -292,7 +292,7 @@ footer::before {
 
 .flip {
     position: relative;
-    height: 84%;
+    height: 100%;
     aspect-ratio: 1135 / 1200;
     transform-style: preserve-3d;
     will-change: transform;
